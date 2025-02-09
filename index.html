@@ -21,6 +21,13 @@
       margin-top: 20px;
       touch-action: none;
     }
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px; /* Adds spacing between buttons */
+        max-width: 220px; /* Ensures two buttons per row */
+        margin: 0 auto; /* Centers the container */
+    }
     .color-btn {
       width: 100px;
       height: 100px;
@@ -66,7 +73,7 @@
     <p id="game-message">Memorize the sequence!</p>
     <br>
     <br>
-    <div>
+    <div class="container">
         <button id="btn1" class="color-btn disabled" onclick="playerTurn(1)">1</button>
         <button id="btn2" class="color-btn disabled" onclick="playerTurn(2)">2</button>
         <button id="btn3" class="color-btn disabled" onclick="playerTurn(3)">3</button>
