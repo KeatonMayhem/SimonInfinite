@@ -1,0 +1,76 @@
+.screen {
+    display: none; /* Hide all screens by default */
+    text-align: center;
+    padding: 20px;
+  }
+  .active {display: block; /* Show only the active screen */}
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    touch-action: none;
+  }
+  .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 10px; /* Adds spacing between buttons */
+      max-width: 220px; /* Ensures two buttons per row */
+      margin: 0 auto; /* Centers the container */
+  }
+  .color-btn {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, opacity 0.3s;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+  }
+  #btn1 { background-color: red; opacity : 0.2; }
+  #btn2 { background-color: blue; opacity : 0.2; }
+  #btn3 { background-color: green; opacity : 0.2; }
+  #btn4 { background-color: orange; opacity : 0.2; }
+  #highscoreTable {
+    width: 50%; /* Adjust width as needed */
+    margin: 0 auto; /* Centers the table */
+    border-collapse: collapse;
+    text-align: center;
+}
+
+#highscoreTable th, #highscoreTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#highscoreTable th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+.styled-button {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    font-size: 18px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.styled-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: scale(1.05);
+}
+
+.styled-button:active {
+    background-color: #3e8e41; /* Even darker green when pressed */
+    transform: scale(0.95);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+  .hidden { display: none; }
+  .disabled { pointer-events: none; opacity: 0.6; }
