@@ -50,12 +50,18 @@ async function fetchHighscore() {
     // Populate top 10 leaderboard
     const highscoreList = document.getElementById('highscoreList');
     highscoreList.innerHTML = ""; // Clear previous entries
-
-    data.records.forEach(record => {
-    const { Name, Highscore } = record.fields;
-    const listItem = document.createElement("li");
-    listItem.textContent = `${Name}: ${Highscore}`;
-    highscoreList.appendChild(listItem);
+    
+    data.records.forEach((record, index) => {
+        const { Name, Highscore } = record.fields;
+        const row = document.createElement("tr");
+    
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${Name}</td>
+            <td>${Highscore}</td>
+        `;
+    
+        highscoreList.appendChild(row);
     });
 
     } catch (error) {
