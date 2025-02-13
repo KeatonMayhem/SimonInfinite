@@ -7,53 +7,8 @@
     <meta name="apple-mobile-web-app-title" content="Simon Infinite">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="white">
-    <link rel="apple-touch-icon" href="assets/icon.png">
   <title>Simon Infinite</title>
-  <style>
-    .screen {
-      display: none; /* Hide all screens by default */
-      text-align: center;
-      padding: 20px;
-    }
-    .active {display: block; /* Show only the active screen */}
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 20px;
-      touch-action: none;
-    }
-    .container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        gap: 10px; /* Adds spacing between buttons */
-        max-width: 220px; /* Ensures two buttons per row */
-        margin: 0 auto; /* Centers the container */
-    }
-    .color-btn {
-      width: 100px;
-      height: 100px;
-      margin: 10px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s, opacity 0.3s;
-      font-size: 24px;
-      font-weight: bold;
-      color: white;
-    }
-    #btn1 { background-color: red; opacity : 0.2; }
-    #btn2 { background-color: blue; opacity : 0.2; }
-    #btn3 { background-color: green; opacity : 0.2; }
-    #btn4 { background-color: orange; opacity : 0.2; }
-    #highscoreList {
-    list-style-type: none;
-    padding: 0;
-    font-size: 20px;
-    font-weight: bold;
-    }
-    .hidden { display: none; }
-    .disabled { pointer-events: none; opacity: 0.6; }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -64,7 +19,7 @@
     <p>How long can you go?</p>
     <br>
     <br>
-    <button onclick="switchScreen('gameScreen'); startCountdown();">Start</button>
+    <button class="styled-button" onclick="switchScreen('gameScreen'); startCountdown();">Start</button>
   </div>
 
   <!-- Game Screen -->
@@ -81,14 +36,25 @@
         <button id="btn4" class="color-btn disabled" onclick="playerTurn(4)">4</button>
       </div>
     <div id="countdown" style="display:none; font-size: 24px; text-align: center;"></div>
+    <!--<button onclick="switchScreen('gameOverScreen')">End Game</button>-->
   </div>
 
   <!-- Game Over Screen -->
   <div id="gameOverScreen" class="screen">
     <h1>Game Over</h1>
     <h2>Top 10 High Scores</h2>
-    <ul id="highscoreList"></ul>
-    <button onclick="switchScreen('gameScreen'); resetGame();">Try Again</button>
+    <table id="highscoreTable">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody id="highscoreList"></tbody>
+    </table>
+    <br>
+    <button class="styled-button" onclick="switchScreen('gameScreen'); resetGame();">Try Again</button>
   </div>
 
   <!-- New Highscore Screen -->
